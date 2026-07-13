@@ -1,0 +1,20 @@
+# 依赖与构建
+node_modules/
+dist/
+*.local
+.vite/
+*.tsbuildinfo
+
+# 环境
+.env
+.env.*
+!.env.example
+
+# IDE / OS / 日志
+.idea/
+.vscode/
+.DS_Store
+*.log
+npm-debug.log*
+pnpm-debug.log*
+*.db
