@@ -20,6 +20,7 @@ export const aiIntroIcons = ['understand', 'dialogue', 'aggregate', 'sovereign']
 export const featureIcons = [
   'files',
   'cloud',
+  'gateway',
   'sync',
   'ai',
   'shield',

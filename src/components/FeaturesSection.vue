@@ -6,6 +6,7 @@ import {
   IconFiles,
   IconFileTypeDoc,
   IconLink,
+  IconNetwork,
   IconPackage,
   IconPlug,
   IconRefresh,
@@ -19,6 +20,7 @@ const items = tm('features.items') as { title: string; desc: string; points?: st
 const iconMap = {
   files: IconFiles,
   cloud: IconCloud,
+  gateway: IconNetwork,
   sync: IconRefresh,
   ai: IconAiAgent,
   shield: IconShieldCheck,

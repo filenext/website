@@ -17,7 +17,7 @@ export default {
     title2: '下一代文件管理系统',
     desc: 'NextFile 将文件管理从「存储与检索」升级为「理解与对话」。聚合多云存储，内置智能体与 SSE 流式问答，让每一份文档都能被 AI 读懂、总结与协作。',
     features: [
-      '多存储源统一管理',
+      '多存储源与协议网关',
       'AI 对话与文件问答',
       '细粒度权限与安全分享',
       '开源可自部署',
@@ -69,7 +69,7 @@ export default {
       },
       {
         title: '从孤岛到汇聚',
-        desc: '本地盘、S3、OneDrive、百度网盘等统一接入，跨存储同步与 AI 问答在同一平台完成，数据流转更顺畅。',
+        desc: '本地盘、S3、OneDrive、百度网盘等统一接入；亦可经 REST API 与 WebDAV / FTP / SFTP / S3 / SMB / NFS 对外访问，跨存储同步与 AI 问答在同一平台完成。',
       },
       {
         title: '从封闭到自主',
@@ -81,7 +81,7 @@ export default {
   features: {
     eyebrow: '核心能力',
     title: '一个平台，覆盖文件全生命周期',
-    desc: '从存储接入、权限管控到 AI 问答与跨云同步，NextFile 将分散的工具链收敛为统一体验。',
+    desc: '从存储接入、协议对外、权限管控到 AI 问答与跨云同步，NextFile 将分散的工具链收敛为统一体验。',
     items: [
       {
         title: '统一文件管理',
@@ -91,7 +91,12 @@ export default {
       {
         title: '多云存储聚合',
         desc: '本地、对象存储与主流云盘一站式接入，切换存储源无需换工具。',
-        points: ['本地 / S3 / MinIO', 'FTP · SFTP · WebDAV', 'OneDrive · Google · 百度'],
+        points: ['本地 / S3 / MinIO', '作为源：FTP · SFTP · WebDAV', 'OneDrive · Google · 百度'],
+      },
+      {
+        title: '协议网关',
+        desc: '把 NextFile 以 REST API 与标准协议对外提供访问，桌面客户端、脚本与旧系统可直接对接或挂载，并与 PathACL / PAT 权限对齐。',
+        points: ['REST API · WebDAV · FTP · SFTP · S3', 'SMB · NFS 共享导出', 'JWT / PAT · 流式读写'],
       },
       {
         title: '跨存储同步',
@@ -169,10 +174,10 @@ export default {
         { label: '智能体', value: '3' },
         { label: '同步任务', value: '12' },
       ],
-      menu: ['用户管理', '存储源', '智能体', '系统配置', '权限', '外观'],
+      menu: ['用户管理', '存储源', '协议网关', '智能体', '系统配置', '权限'],
       activity: [
         { title: '同步任务「本地 → 百度」完成', time: '2 分钟前' },
-        { title: '新增存储源 OneDrive', time: '1 小时前' },
+        { title: '协议网关已启用 WebDAV / SFTP', time: '1 小时前' },
         { title: '智能体「文档助手」已启用', time: '今天' },
       ],
     },
@@ -245,13 +250,18 @@ export default {
         step: '01',
         title: '接入存储',
         desc: '把分散的文件源统一挂载到 NextFile，一次配置全局可用。',
-        details: ['本地目录 / S3 / MinIO 对象存储', 'FTP · SFTP · WebDAV 协议盘', 'OneDrive · Google Drive · 百度网盘 OAuth', '连通性测试通过后即生效'],
+        details: ['本地目录 / S3 / MinIO 对象存储', '作为存储源：FTP · SFTP · WebDAV', 'OneDrive · Google Drive · 百度网盘 OAuth', '连通性测试通过后即生效'],
       },
       {
         step: '02',
-        title: '分配权限',
-        desc: '按组织与用户划定可见范围，避免「所有人看到所有盘」。',
-        details: ['部门树形结构与用户归属', '存储源挂载到部门/个人', '封闭路径 ACL（授权后其他人不可见）', '列表与 AI 问答统一 PermRead 过滤'],
+        title: '分配权限与协议网关',
+        desc: '按组织与用户划定可见范围，并按需开启标准协议对外访问。',
+        details: [
+          '部门树形结构与用户归属',
+          '封闭路径 ACL（授权后其他人不可见）',
+          '对外协议：REST / WebDAV / FTP / SFTP / S3 / SMB / NFS',
+          'JWT 或 PAT 鉴权；REST/WebDAV/FTP/SFTP/S3 走 PathACL',
+        ],
       },
       {
         step: '03',
@@ -286,10 +296,10 @@ export default {
         features: [
           '无限用户与存储源',
           '多云同步与 AI 智能体',
+          '对外协议（REST / WebDAV / FTP / SFTP / S3 / SMB / NFS）',
           '权限管理与安全分享',
           '取件码与 ONLYOFFICE',
           'Docker 一键部署',
-          '社区文档与 Issue 支持',
         ],
       },
       {
@@ -301,7 +311,7 @@ export default {
           '社区版全部功能',
           'deploy / upgrade / backup 脚本',
           '健康检查与失败回滚',
-          'Nginx / HTTPS 配置模板',
+          'Nginx / HTTPS 与协议网关端口规划',
           'PUBLIC_BASE_URL 与 OAuth 联调指南',
           '邮件技术咨询（可选）',
         ],
@@ -326,7 +336,11 @@ export default {
     faq: [
       {
         q: '社区版有功能阉割吗？',
-        a: '没有。MIT 开源仓库包含文件管理、多云、AI、权限与分享等核心能力，企业版主要提供部署与定制服务。',
+        a: '没有。MIT 开源仓库包含文件管理、多云存储、协议网关、AI、权限与分享等核心能力，企业版主要提供部署与定制服务。',
+      },
+      {
+        q: '协议网关和「作为存储源」有什么区别？',
+        a: '作为存储源是把外部 FTP/SFTP/WebDAV/S3 等挂进 NextFile；对外访问则相反——REST API（主服务）始终可用，并可按需开启 WebDAV、FTP、SFTP、S3 API、SMB、NFS，供 Finder、资源管理器、rclone、脚本等对接。REST/WebDAV/FTP/SFTP/S3 走 PathACL 与 JWT/PAT；SMB/NFS 为共享导出（Guest/无细粒度 ACL）。',
       },
       {
         q: '需要单独购买数据库或向量库吗？',
@@ -373,7 +387,7 @@ export default {
     ],
   },
   footer: {
-    desc: 'AI 驱动的下一代文件管理系统。聚合多云存储，内置向量 RAG 智能体与 SSE 流式目录问答，生产支持 PostgreSQL 18 + Milvus，开源可私有化部署。',
+    desc: 'AI 驱动的下一代文件管理系统。聚合多云存储，协议网关对外导出，内置向量 RAG 智能体与 SSE 流式目录问答，生产支持 PostgreSQL 18 + Milvus，开源可私有化部署。',
     product: '产品',
     resources: '资源',
     contact: '联系',
@@ -396,6 +410,19 @@ export default {
       deploy: '部署',
     },
     entries: [
+      {
+        version: 'v0.4.0',
+        date: '2026-07',
+        title: '协议网关：标准协议对外访问',
+        items: [
+          { tag: 'feature', text: '对外协议：REST API + WebDAV / FTP / SFTP / S3 API / SMB / NFS' },
+          { tag: 'feature', text: 'REST / WebDAV / FTP / SFTP / S3 支持 JWT 或 PAT 鉴权，并与 PathACL 对齐' },
+          { tag: 'feature', text: 'SMB 支持列目录、上传下载、删除与重命名；兼容 go-smb2 与 smbclient' },
+          { tag: 'feature', text: 'S3 ListObjects 分页（max-keys / marker / continuation-token）与流式 PUT' },
+          { tag: 'improve', text: 'WebDAV / SFTP 大文件读写改临时文件流式落盘，避免整包进内存' },
+          { tag: 'improve', text: 'FTP 主动/被动模式（PORT / PASV / EPSV）；权限拒绝与「不存在」错误码区分' },
+        ],
+      },
       {
         version: 'v0.3.0',
         date: '2026-07',

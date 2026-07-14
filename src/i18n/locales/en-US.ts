@@ -17,7 +17,7 @@ export default {
     title2: 'Next-Generation File Management',
     desc: 'NextFile upgrades file management from "store and retrieve" to "understand and converse." Aggregate multi-cloud storage with built-in agents and SSE streaming Q&A — every document readable, summarizable, and collaborative.',
     features: [
-      'Unified multi-storage management',
+      'Multi-storage & protocol gateway',
       'AI chat & document Q&A',
       'Fine-grained permissions & sharing',
       'Open source & self-hosted',
@@ -69,7 +69,7 @@ export default {
       },
       {
         title: 'From silos to convergence',
-        desc: 'Local disk, S3, OneDrive, Baidu Pan in one place — sync and AI Q&A on the same platform.',
+        desc: 'Local disk, S3, OneDrive, Baidu Pan in one place — access via REST API and WebDAV / FTP / SFTP / S3 / SMB / NFS. Sync and AI Q&A on the same platform.',
       },
       {
         title: 'From closed to sovereign',
@@ -81,7 +81,7 @@ export default {
   features: {
     eyebrow: 'Core Capabilities',
     title: 'One platform for the entire file lifecycle',
-    desc: 'From storage onboarding and access control to AI Q&A and cross-cloud sync — NextFile unifies your toolchain.',
+    desc: 'From storage onboarding, protocol export, and access control to AI Q&A and cross-cloud sync — NextFile unifies your toolchain.',
     items: [
       {
         title: 'Unified File Management',
@@ -91,7 +91,12 @@ export default {
       {
         title: 'Multi-Cloud Storage',
         desc: 'Local disk, object storage, and major cloud drives in one place.',
-        points: ['Local / S3 / MinIO', 'FTP · SFTP · WebDAV', 'OneDrive · Google · Baidu'],
+        points: ['Local / S3 / MinIO', 'As source: FTP · SFTP · WebDAV', 'OneDrive · Google · Baidu'],
+      },
+      {
+        title: 'Protocol Gateway',
+        desc: 'Expose NextFile over REST API and standard protocols so desktop clients, scripts, and legacy systems can integrate or mount — aligned with PathACL and PAT.',
+        points: ['REST API · WebDAV · FTP · SFTP · S3', 'SMB · NFS share export', 'JWT / PAT · streaming I/O'],
       },
       {
         title: 'Cross-Storage Sync',
@@ -169,10 +174,10 @@ export default {
         { label: 'Agents', value: '3' },
         { label: 'Sync Jobs', value: '12' },
       ],
-      menu: ['Users', 'Storages', 'Agents', 'Settings', 'Permissions', 'Appearance'],
+      menu: ['Users', 'Storages', 'Gateway', 'Agents', 'Settings', 'Permissions'],
       activity: [
         { title: 'Sync job “Local → Baidu” finished', time: '2 min ago' },
-        { title: 'Added OneDrive storage', time: '1 hour ago' },
+        { title: 'Gateway enabled WebDAV / SFTP', time: '1 hour ago' },
         { title: 'Agent “Doc Assistant” enabled', time: 'Today' },
       ],
     },
@@ -245,13 +250,18 @@ export default {
         step: '01',
         title: 'Connect storage',
         desc: 'Mount scattered file sources into NextFile — configure once, use everywhere.',
-        details: ['Local disk / S3 / MinIO object storage', 'FTP · SFTP · WebDAV protocols', 'OneDrive · Google Drive · Baidu Pan OAuth', 'Run connectivity test before go-live'],
+        details: ['Local disk / S3 / MinIO object storage', 'As storage source: FTP · SFTP · WebDAV', 'OneDrive · Google Drive · Baidu Pan OAuth', 'Run connectivity test before go-live'],
       },
       {
         step: '02',
-        title: 'Set permissions',
-        desc: 'Scope visibility by org and user — no more "everyone sees every drive".',
-        details: ['Department tree & user assignment', 'Mount storages per dept/user', 'Restrictive path ACL (grant-only visibility)', 'Unified PermRead filter on list & Q&A'],
+        title: 'Set permissions & gateway',
+        desc: 'Scope visibility by org and user, then optionally expose files over standard protocols.',
+        details: [
+          'Department tree & user assignment',
+          'Restrictive path ACL (grant-only visibility)',
+          'Outbound: REST / WebDAV / FTP / SFTP / S3 / SMB / NFS',
+          'JWT or PAT auth; REST/WebDAV/FTP/SFTP/S3 honor PathACL',
+        ],
       },
       {
         step: '03',
@@ -286,10 +296,10 @@ export default {
         features: [
           'Unlimited users & storages',
           'Multi-cloud sync & AI agents',
+          'Outbound protocols (REST / WebDAV / FTP / SFTP / S3 / SMB / NFS)',
           'Permissions & secure sharing',
           'Pickup codes & ONLYOFFICE',
           'Docker one-click deploy',
-          'Community docs & Issues',
         ],
       },
       {
@@ -301,7 +311,7 @@ export default {
           'Everything in Community',
           'deploy / upgrade / backup scripts',
           'Health checks & rollback',
-          'Nginx / HTTPS templates',
+          'Nginx / HTTPS & gateway port planning',
           'PUBLIC_BASE_URL & OAuth guide',
           'Email consulting (optional)',
         ],
@@ -326,7 +336,11 @@ export default {
     faq: [
       {
         q: 'Is Community feature-limited?',
-        a: 'No. The MIT repo includes file management, multi-cloud, AI, ACL, and sharing. Enterprise mainly adds deployment and customization services.',
+        a: 'No. The MIT repo includes file management, multi-cloud storage, protocol gateway, AI, ACL, and sharing. Enterprise mainly adds deployment and customization services.',
+      },
+      {
+        q: 'Protocol gateway vs “storage source” — what’s the difference?',
+        a: 'As a storage source, NextFile mounts external FTP/SFTP/WebDAV/S3. Outbound access is the reverse — REST API on the main service is always available, and you can optionally enable WebDAV, FTP, SFTP, S3 API, SMB, and NFS for Finder, File Explorer, rclone, and scripts. REST/WebDAV/FTP/SFTP/S3 use PathACL with JWT/PAT; SMB/NFS are share exports (guest / no fine-grained ACL).',
       },
       {
         q: 'Do I need Postgres or a vector DB to start?',
@@ -373,7 +387,7 @@ export default {
     ],
   },
   footer: {
-    desc: 'AI-driven next-generation file management. Multi-cloud storage, vector RAG agents, SSE directory Q&A — production-ready with PostgreSQL 18 + Milvus, open source and self-hosted.',
+    desc: 'AI-driven next-generation file management. Multi-cloud storage, protocol gateway export, vector RAG agents, SSE directory Q&A — production-ready with PostgreSQL 18 + Milvus, open source and self-hosted.',
     product: 'Product',
     resources: 'Resources',
     contact: 'Contact',
@@ -396,6 +410,19 @@ export default {
       deploy: 'Deploy',
     },
     entries: [
+      {
+        version: 'v0.4.0',
+        date: '2026-07',
+        title: 'Protocol gateway: standard protocol access',
+        items: [
+          { tag: 'feature', text: 'Outbound protocols: REST API + WebDAV / FTP / SFTP / S3 API / SMB / NFS' },
+          { tag: 'feature', text: 'REST / WebDAV / FTP / SFTP / S3 support JWT or PAT auth aligned with PathACL' },
+          { tag: 'feature', text: 'SMB list / upload / download / delete / rename — compatible with go-smb2 and smbclient' },
+          { tag: 'feature', text: 'S3 ListObjects pagination (max-keys / marker / continuation-token) and streaming PUT' },
+          { tag: 'improve', text: 'WebDAV / SFTP large-file I/O via temp-file streaming to avoid full in-memory buffers' },
+          { tag: 'improve', text: 'FTP active/passive modes (PORT / PASV / EPSV); distinct permission vs not-found errors' },
+        ],
+      },
       {
         version: 'v0.3.0',
         date: '2026-07',
