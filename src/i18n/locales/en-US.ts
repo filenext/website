@@ -61,7 +61,7 @@ export default {
     pillars: [
       {
         title: 'From storage to understanding',
-        desc: 'Auto-parse PDF, Word, Markdown and more; chunks are embedded for Milvus semantic retrieval in production.',
+        desc: 'Auto-parse PDF, Word, PowerPoint, Excel, Markdown and more; chunks are embedded for Milvus semantic retrieval in production.',
       },
       {
         title: 'From search to dialogue',

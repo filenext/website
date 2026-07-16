@@ -61,7 +61,7 @@ export default {
     pillars: [
       {
         title: '从存取到理解',
-        desc: '支持 PDF、Word、Markdown 等格式的自动解析，将文件切块写入知识库；生产环境通过 Milvus 向量检索精准命中相关片段。',
+        desc: '支持 PDF、Word、PPT、Excel、Markdown 等格式的自动解析，将文件切块写入知识库；生产环境通过 Milvus 向量检索精准命中相关片段。',
       },
       {
         title: '从搜索到对话',
