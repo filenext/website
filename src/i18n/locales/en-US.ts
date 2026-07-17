@@ -99,6 +99,11 @@ export default {
         points: ['REST API · WebDAV · FTP · SFTP · S3', 'SMB · NFS share export', 'JWT / PAT · streaming I/O'],
       },
       {
+        title: 'Desktop Sync Drive',
+        desc: 'Enterprise desktop client with on-demand sync: placeholders by default, fetch on open; unified protocol for Windows, macOS, and Linux.',
+        points: ['On-demand · resumable transfer', 'Win / Mac / Linux', 'First-run setup · auto-update'],
+      },
+      {
         title: 'Cross-Storage Sync',
         desc: 'Enterprise edition supports mirror and incremental modes with schedules and dedicated sync logs across storage backends.',
         points: ['Mirror / incremental', 'Scheduled jobs', 'Dedicated sync logs'],
@@ -325,11 +330,12 @@ export default {
         name: 'Enterprise',
         price: 'Custom',
         period: 'On request',
-        desc: 'Unlimited enabled users with protocol gateway, cross-storage sync, watermarks, and full branding.',
+        desc: 'Unlimited enabled users with protocol gateway, desktop Sync Drive, cross-storage sync, watermarks, and full branding.',
         features: [
           'Unlimited enabled accounts',
           'Everything in Team',
           'Protocol gateway SMB / NFS etc.',
+          'Desktop Sync Drive (on-demand)',
           'Cross-storage sync · system watermark',
           'Ops center (health / logs / backup)',
           'Extension apps · QR Code Tool',
@@ -343,7 +349,7 @@ export default {
     faq: [
       {
         q: 'What are Community edition limits?',
-        a: 'Community allows up to 5 enabled accounts; sharing is limited to copying public links. Path ACL, audit logs, directory AI Q&A, and advanced sharing require Team or above. Protocol gateway and cross-storage sync are Enterprise features. Branding is read-only by default.',
+        a: 'Community allows up to 5 enabled accounts; sharing is limited to copying public links. Path ACL, audit logs, directory AI Q&A, and advanced sharing require Team or above. Protocol gateway, desktop Sync Drive, and cross-storage sync are Enterprise features. Branding is read-only by default.',
       },
       {
         q: 'How do I trial Team or Enterprise?',
