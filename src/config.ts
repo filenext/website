@@ -28,6 +28,7 @@ export const featureIcons = [
   'share',
   'office',
   'pickup',
+  'license',
 ] as const
 export const valueIcons = ['open', 'secure', 'simple', 'evolve'] as const
 

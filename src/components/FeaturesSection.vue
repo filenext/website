@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import {
   IconAiAgent,
+  IconCertificate,
   IconCloud,
   IconFiles,
   IconFileTypeDoc,
@@ -28,6 +29,7 @@ const iconMap = {
   share: IconLink,
   office: IconFileTypeDoc,
   pickup: IconPackage,
+  license: IconCertificate,
 } as const
 </script>
 
