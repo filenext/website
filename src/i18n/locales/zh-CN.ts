@@ -331,6 +331,7 @@ export default {
           '团队版全部能力',
           '协议网关 SMB / NFS 等',
           '跨存储同步 · 系统水印',
+          '运维中心（健康/日志/备份）',
           'Logo / Favicon / 分享页广告',
           '管理员 TOTP · LDAP / SSO',
           'NextLicense 部署跟踪与 SLA',

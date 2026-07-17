@@ -331,6 +331,7 @@ export default {
           'Everything in Team',
           'Protocol gateway SMB / NFS etc.',
           'Cross-storage sync · system watermark',
+          'Ops center (health / logs / backup)',
           'Logo / Favicon / share page ads',
           'Admin TOTP · LDAP / SSO',
           'NextLicense deployment tracking & SLA',
