@@ -114,9 +114,9 @@ export default {
         points: ['路径 ACL（团队版+）', '审计日志（团队版+）', 'TOTP / SSO（企业版）'],
       },
       {
-        title: '插件可扩展',
-        desc: 'EventBus + Webhook 插件体系，对接外部 RAG、审批流或业务系统。',
-        points: ['事件总线订阅', 'Webhook 出站', '自定义业务扩展'],
+        title: 'Webhook 与扩展应用',
+        desc: 'Webhook 连接器对接外部系统；企业版扩展应用平台支持站内应用、左侧菜单，以及可定制样式的官方二维码工具。',
+        points: ['Webhook 出站事件', '扩展应用左侧菜单（企业版）', '二维码样式/Logo/活码'],
       },
       {
         title: '安全分享',
@@ -332,6 +332,7 @@ export default {
           '协议网关 SMB / NFS 等',
           '跨存储同步 · 系统水印',
           '运维中心（健康/日志/备份）',
+          '扩展应用平台 · 二维码工具',
           'Logo / Favicon / 分享页广告',
           '管理员 TOTP · LDAP / SSO',
           'NextLicense 部署跟踪与 SLA',

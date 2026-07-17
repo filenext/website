@@ -114,9 +114,9 @@ export default {
         points: ['Path ACL (Team+)', 'Audit logs (Team+)', 'TOTP / SSO (Enterprise)'],
       },
       {
-        title: 'Plugin Extensibility',
-        desc: 'EventBus + Webhook plugins for RAG, approvals, and custom systems.',
-        points: ['Event subscriptions', 'Outbound webhooks', 'Custom extensions'],
+        title: 'Webhooks & Extensions',
+        desc: 'Webhook connectors integrate external systems; Enterprise extensions add in-app tools, sidebar menus, and a style-customizable official QR Code Tool.',
+        points: ['Outbound webhook events', 'Sidebar extension apps (Enterprise)', 'QR styles / Logo / live codes'],
       },
       {
         title: 'Secure Sharing',
@@ -332,6 +332,7 @@ export default {
           'Protocol gateway SMB / NFS etc.',
           'Cross-storage sync · system watermark',
           'Ops center (health / logs / backup)',
+          'Extension apps · QR Code Tool',
           'Logo / Favicon / share page ads',
           'Admin TOTP · LDAP / SSO',
           'NextLicense deployment tracking & SLA',
