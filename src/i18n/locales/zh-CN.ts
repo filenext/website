@@ -101,7 +101,7 @@ export default {
       {
         title: '桌面 Sync Drive',
         desc: '企业版桌面客户端按需同步：本地默认占位，打开再拉取；Win / Mac / Linux 统一同步协议。',
-        points: ['按需拉取 · 断点续传', 'Win / Mac / Linux', '首次连接向导 · 自动升级'],
+        points: ['按需拉取 · 断点续传', 'Win CfAPI / Mac / Linux 状态角标', '弱网重试 · 首次向导 · 自动升级'],
       },
       {
         title: '跨存储同步',

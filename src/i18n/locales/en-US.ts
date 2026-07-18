@@ -101,7 +101,7 @@ export default {
       {
         title: 'Desktop Sync Drive',
         desc: 'Enterprise desktop client with on-demand sync: placeholders by default, fetch on open; unified protocol for Windows, macOS, and Linux.',
-        points: ['On-demand · resumable transfer', 'Win / Mac / Linux', 'First-run setup · auto-update'],
+        points: ['On-demand · resumable transfer', 'Win CfAPI / Mac / Linux status overlays', 'Weak-network retry · first-run setup · auto-update'],
       },
       {
         title: 'Cross-Storage Sync',
